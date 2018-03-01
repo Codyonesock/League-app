@@ -10,11 +10,15 @@ import { AppComponent } from './app.component';
 // ...
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   pathMatch: 'full',
-  //   redirectTo: 'home'
-  // },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
+    path: 'home',
+    loadChildren: 'app/home/home.module#HomeModule'
+  },
   {
     path: 'summoner',
     loadChildren: 'app/summoner-view/summoner-view.module#SummonerViewModule'

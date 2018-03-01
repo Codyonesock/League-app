@@ -4,7 +4,7 @@ declare namespace USER {
     value: {
       profileIconId: number;
       name: string;
-      summonerLevel: number;
+      level: number;
       accountId: number;
       id: number;
     };
