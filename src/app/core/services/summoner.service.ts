@@ -5,13 +5,14 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SummonerService {
 
-  summoners: Array<USER.SummonerProfile>;
+  private summoners: Array<USER.SummonerProfile>;
 
   constructor(
     private http: Http
   ) {}
 
-  getSummoners() {
-    return this.http.get('api/summoners').map(summoner => this.summoners = summoner.json().data);
+  getSummoner(summoner: string) {
+    return this.http.get(`api/summoner/${summoner}`)
+      .map(summonerData => this.summoners = summonerData.json().data);
   }
 }

@@ -2,6 +2,10 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+
+// Services
 import { SummonerService } from '../core/services/summoner.service';
 
 @Component({
@@ -11,13 +15,19 @@ import { SummonerService } from '../core/services/summoner.service';
 
 export class SummonerViewComponent implements OnInit {
 
-  summoners: Array<USER.SummonerProfile>;
+  public summoner$: Observable<any>;
+  public summonerParam: string;
 
   constructor(
-    private summonerService: SummonerService
-  ) {}
+    private summonerService: SummonerService,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.summonerParam = '';
+  }
 
   ngOnInit() {
-    this.summonerService.getSummoners().subscribe(summoner =>  this.summoners = summoner);
+    this.activatedRoute.params.subscribe(params => {
+      this.summoner$ = this.summonerService.getSummoner(params.summoner);
+    });
   }
 }

@@ -6,7 +6,7 @@ import { SummonerViewComponent } from './summoner-view.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':summoner',
     component: SummonerViewComponent
   },
 ];

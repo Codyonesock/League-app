@@ -1,7 +1,6 @@
 <h1>Blub blub <>< <><</h1>
 
-<ul>
-  <li *ngFor="let summoner of summoners">
-    {{ summoner.value.name }}
-  </li>
-</ul>
+<div *ngFor="let summoner of summoner$ | async">
+  <div>Summoner Name: {{ summoner.name }}</div>
+  <div>Summoner Rank: {{ summoner.summonerLevel }}</div>
+</div>
