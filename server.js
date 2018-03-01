@@ -20,9 +20,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-// Set up static Folder
-// app.use(express.static(path.join(__dirname, 'src')));
-
 // Set port
 const port = process.env.PORT || '3000';
 app.set('port', port);
