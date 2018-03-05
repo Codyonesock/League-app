@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const nano = require('nano')('http://localhost:5984');
 const { Kayn, REGIONS } = require('kayn')
-const { api_key } = require('../../key');
+require('dotenv').config()
 
-const kayn = Kayn(api_key)({
+const kayn = Kayn(process.env.RIOT_API_KEY)({
   region: REGIONS.NORTH_AMERICA,
   debugOptions: {
       isEnabled: true,
